@@ -1,11 +1,6 @@
 const router = require('express').Router();
 const passport = require('passport')
 
-// //login
-// router.get('/login', (req,res)=>{
-//   res.render('login');
-// })
-
 //logout
 router.get('/logout', (req, res) => {
   req.logOut();
@@ -14,7 +9,7 @@ router.get('/logout', (req, res) => {
 
 //Auth Google
 router.get('/google', passport.authenticate('google', {
-  scope: ['profile']
+  scope: ['profile', 'email', 'https://www.googleapis.com/auth/drive.file']
 }))
 
 //Redirect func
